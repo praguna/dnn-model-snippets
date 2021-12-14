@@ -42,12 +42,13 @@ def full_attentive_matching_bimpm(num_words = 200000, EMBEDDING_DIM = 300, MAX_S
     
     # Embedding Layer
     weights = [embedding_matrix] if embedding_matrix != None else None
+    trainable = False if embedding_matrix != None else True 
     emb_layer = Embedding(
       input_dim=num_words,
       output_dim=EMBEDDING_DIM,
       weights=weights,
       input_length=MAX_SEQUENCE_LENGTH,
-      trainable=False
+      trainable=trainable
     )
 
     emb1 = emb_layer(seq1)
