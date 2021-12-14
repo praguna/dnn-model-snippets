@@ -122,6 +122,6 @@ def enhancedRCNN(num_words = 200000, EMBEDDING_DIM = 300, MAX_SEQUENCE_LENGTH = 
     merged = Dense(133, activation='relu')(merged)
     merged = BatchNormalization()(merged)
     merged = Dropout(0.2)(merged)
-    d3 = Dense(1, activation = 'sigmoid')(c)
+    d3 = Dense(1, activation = 'sigmoid')(merged)
 
     return Model(inputs = [seq1, seq2],  outputs = d3, name = "enhancedRCNN")
